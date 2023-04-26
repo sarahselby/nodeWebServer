@@ -1,7 +1,7 @@
 const WebSocket = require('ws')
-const wss = new WebSocket.Server({ port: 8080 },()=>{
-    console.log('server started')
-})
+const PORT = process.env.PORT || 3000;
+const wss = new WebSocket.Server({ port: PORT });
+
 wss.on('connection', function connection(ws) {
    ws.on('message', (data) => {
       console.log('data received \n %o',data.toString());
